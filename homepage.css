@@ -1,0 +1,64 @@
+
+header{
+    display: flex;
+    left:-0px;
+    top:-5px;
+    background-color: #00BD61;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+}
+header> .LoginIcon{
+    left: 9000px;
+    justify-content: space-between;
+}
+header> .LoginIcon > img{
+    left: 9000px;
+    width:52px;
+    height: 65px;
+    border-radius: 100px;
+}
+*{
+    margin-left: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width:100%;
+    height:100%;
+    position:fixed;
+    display:flex;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.Websitelogo{
+    position: absolute;
+    top: 100px;
+    left:150px;
+}
+.Searchbar{
+    overflow: hidden;
+    background-color: #ff0000;
+    position: absolute;
+    top: 100px;
+    left:1550px;
+    box-sizing: border-box;
+    border-radius: 75px;
+}
+.Searchbar input[type=text]{
+    float: right;
+    padding: 6px;
+    border: none;
+    font-size: 25px;
+}
+.content {
+/*   background-color: rgba(255, 255, 255, 0.8); */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/*
+
+*/
