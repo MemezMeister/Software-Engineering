@@ -68,6 +68,14 @@ header {
 
 .game-details h1 {
     color: white;
+    font-size: 52px;
+    text-align: center;
+}
+
+.game-details .links {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 .game-details .links img {
@@ -76,22 +84,44 @@ header {
     margin-right: 10px;
 }
 
-.game-details .rating {
-    color: #FFD700;
+.game-details .rating-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 10px 0;
+}
+
+.game-details .rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFD700;
+    margin: 5px 0;
+    font-size: 2em;
+}
+
+.game-details .rating .star {
+    font-size: 2em;
+}
+
+.game-details .rating .star.half {
+    color: gold;
 }
 
 .game-details .tags {
     display: flex;
-    gap: 5px;
+    justify-content: center;
+    gap: 10px;
     margin-bottom: 10px;
 }
 
 .game-details .tags div {
-    background: #f00;
+    background: red;
     color: white;
-    padding: 5px;
-    border-radius: 5px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .game-details img {
@@ -106,10 +136,50 @@ header {
     padding: 20px;
 }
 
-.reviews h2 {
+.reviews h2, .game-details h1 {
     color: white;
     text-align: center;
-    margin-bottom: 20px;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.star-rating {
+    display: flex;
+    direction: rtl;
+    font-size: 2em;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    color: lightgray;
+    cursor: pointer;
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: gold;
+}
+
+.star-rating.read-only {
+    direction: ltr;
+}
+
+.star-rating.read-only label {
+    cursor: default;
+}
+
+.star-rating.read-only label:hover,
+.star-rating.read-only label:hover ~ label {
+    color: lightgray;
 }
 
 .review {
@@ -124,10 +194,6 @@ header {
     color: white;
 }
 
-.review .rating {
-    color: #FFD700;
-}
-
 .review p {
     color: white;
 }
@@ -139,7 +205,7 @@ header {
 }
 
 .reviews textarea {
-    width: 100%;
+    width: 98%;
     padding: 10px;
     border-radius: 5px;
     border: none;
@@ -168,4 +234,40 @@ header {
 
 .reviews .rating input {
     display: none;
+}
+
+.links img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.rating {
+    color: #FFD700;
+    margin: 10px 0;
+}
+
+.rating-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #00BD61;
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+#write-review-button {
+    background: #007B45;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#write-review-button:hover {
+    background: #005F33;
 }

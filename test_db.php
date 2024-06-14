@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "users"; // Your actual database username
-$password = ""; // Your actual database password (empty string if none)
+$username = "MemezMeister"; // Your actual database username
+$password = "StevenIsMemez1"; // Your actual database password (empty string if none)
 $dbname = "games_db"; // Your actual database name
 
 // Create connection
