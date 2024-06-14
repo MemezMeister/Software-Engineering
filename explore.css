@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('WebsiteBackground.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00BD61;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.user-icon {
+    flex-shrink: 0;
+}
+
+.user-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.search-bar {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    margin-left: 20px;
+}
+
+.search-bar input[type="text"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    flex-grow: 1;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007B45;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.search-bar button:hover {
+    background-color: #005F33;
+}
+
+.container {
+    width: 80%;
+    margin: 100px auto 0 auto;
+    overflow: hidden;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: white;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    background-color: #007B45;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.tab-button:hover {
+    background-color: #005F33;
+}
+
+.game-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.game-item {
+    background: #00BD61;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.game-item img {
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.game-item h2 {
+    font-size: 1.2em;
+    margin: 0;
+    color: white;
+    flex: 1;
+}
+
+.tags {
+    display: flex;
+    gap: 5px;
+}
+
+.tags div {
+    background: #f00;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.rating {
+    margin-left: 10px;
+    color: #FFD700;
+}
+
+.game-item a {
+    padding: 5px 10px;
+    background: #007B45;
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.game-item a:hover {
+    background: #005F33;
+}
