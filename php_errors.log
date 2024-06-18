@@ -1,0 +1,45 @@
+[15-Jun-2024 15:02:00 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'tag_name' in 'field list' in C:\xampp\htdocs\Software-Engineering\game.php:28
+Stack trace:
+#0 C:\xampp\htdocs\Software-Engineering\game.php(28): mysqli->query('SELECT g.game_n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Software-Engineering\game.php on line 28
+[15-Jun-2024 15:31:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "DB_SERVER" in C:\xampp\htdocs\Software-Engineering\fetch_games.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Software-Engineering\fetch_games.php on line 14
+[15-Jun-2024 15:32:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "DB_SERVER" in C:\xampp\htdocs\Software-Engineering\fetch_games.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Software-Engineering\fetch_games.php on line 14
+[15-Jun-2024 15:33:28 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "DB_SERVER" in C:\xampp\htdocs\Software-Engineering\fetch_games.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Software-Engineering\fetch_games.php on line 14
+[15-Jun-2024 15:33:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "DB_SERVER" in C:\xampp\htdocs\Software-Engineering\fetch_games.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Software-Engineering\fetch_games.php on line 14
+[15-Jun-2024 15:34:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "DB_SERVER" in C:\xampp\htdocs\Software-Engineering\fetch_games.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Software-Engineering\fetch_games.php on line 14
+[15-Jun-2024 15:34:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "DB_SERVER" in C:\xampp\htdocs\Software-Engineering\fetch_games.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Software-Engineering\fetch_games.php on line 14
+[15-Jun-2024 15:34:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "DB_SERVER" in C:\xampp\htdocs\Software-Engineering\fetch_games.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Software-Engineering\fetch_games.php on line 14
+[15-Jun-2024 15:34:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "DB_SERVER" in C:\xampp\htdocs\Software-Engineering\fetch_games.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Software-Engineering\fetch_games.php on line 14
+[15-Jun-2024 15:34:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "DB_SERVER" in C:\xampp\htdocs\Software-Engineering\fetch_games.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Software-Engineering\fetch_games.php on line 14
+[15-Jun-2024 15:35:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "DB_SERVER" in C:\xampp\htdocs\Software-Engineering\fetch_games.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Software-Engineering\fetch_games.php on line 14
