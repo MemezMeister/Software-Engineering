@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="user-icon">
-            <a id="user-link" class="login-btn">Login</a>
+            <a id="user-link"><img id="user-image"  alt="User Icon"></a>
         </div>
         <div class="logo">
             <a href="explore.html"><img src="WebsiteLogo.png" alt="Website Logo"></a>
@@ -28,11 +28,14 @@
             <button class="tab-button" onclick="showCategory('deaf')">Deaf Accessibility</button>
             <button class="tab-button" onclick="showCategory('colorblind-deaf')">Colorblind and Deaf Accessibility</button>
             <button class="tab-button" onclick="showCategory('non-inclusive')">Non-Inclusive Games</button>
+            <button class="tab-button" data-category="made-for-you">Made For You</button>
         </div>
         <div class="game-list" id="game-list">
             <!-- Games will be populated here -->
         </div>
     </div>
     <script src="explore.js"></script>
+    <script src="made_for_you.js"></script>
+    <script src="explore_account.js"></script>   
 </body>
 </html>

@@ -1,9 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOMContentLoaded event fired in explore.js"); // Debugging line
+
     fetch('fetch_games.php')
-        .then(response => response.json())
+        .then(response => {
+            console.log("Response received from fetch_games.php"); // Debugging line
+            return response.json();
+        })
         .then(data => {
+            console.log('Game Data:', data); // Debugging line
             if (data.error) {
                 console.error("Error fetching game data: ", data.error);
+                logError("Error fetching game data: " + data.error);
                 return;
             }
             
@@ -32,7 +39,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 gameList.appendChild(gameItem);
             });
         })
-        .catch(error => console.error('Error fetching game data:', error));
+        .catch(error => {
+            console.error('Error fetching game data:', error);
+            logError('Error fetching game data: ' + error);
+        });
 });
 
 function showCategory(category) {
@@ -44,4 +54,14 @@ function showCategory(category) {
             items[i].style.display = 'none';
         }
     }
+}
+
+function logError(errorMessage) {
+    fetch('log_errors.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: 'error_message=' + encodeURIComponent(errorMessage)
+    });
 }

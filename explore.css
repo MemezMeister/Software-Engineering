@@ -19,6 +19,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
+    z-index: 1000; /* Ensure header stays on top */
 }
 
 .user-icon {
@@ -42,6 +43,11 @@ header {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    background-color: #A0FF7F;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto 10px auto;
 }
 
 .logo {
