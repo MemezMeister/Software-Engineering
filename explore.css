@@ -8,8 +8,8 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-}
 
+}
 header {
     display: flex;
     justify-content: space-between;
@@ -64,30 +64,45 @@ header {
     display: flex;
     justify-content: flex-end;
     flex-grow: 1;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .search-bar input[type="text"] {
-    padding: 5px;
+    padding: 10px 20px;
     border-radius: 5px;
+    font-size:15px;
     border: 1px solid #ccc;
     flex-grow: 1;
+    margin-left:10px;
 }
 
 .search-bar button {
-    padding: 5px 10px;
+    padding: 10px 20px;
     border: none;
     background-color: #007B45;
     color: white;
     border-radius: 5px;
     cursor: pointer;
     margin-left: 10px;
+    margin-right: 20px;
 }
 
 .search-bar button:hover {
     background-color: #005F33;
 }
+.request-game-button {
+    padding: 10px 20px;
+    background-color: #007B45;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 10px;
+}
 
+.request-game-button:hover {
+    background-color: #005F33;
+}
 .container {
     width: 80%;
     margin: 100px auto 0 auto;

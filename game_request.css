@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('WebsiteBackground.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00BD61;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 70px;
+}
+
+.request-card {
+    background-color: #005F33;
+    border-radius: 15px;
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+    color: white;
+}
+
+.request-card h2 {
+    margin-top: 0;
+}
+
+.request-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.request-card label {
+    margin-top: 10px;
+    text-align: left;
+}
+
+.request-card input,
+.request-card textarea {
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.request-card button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007B45;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.request-card button:hover {
+    background-color: #005F33;
+}

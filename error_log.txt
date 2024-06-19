@@ -1,0 +1,8 @@
+Error fetching game data: SyntaxError: Unexpected token '<', "<br />
+<b>"... is not valid JSON
+Error fetching user data: User not logged in.
+Error fetching user data: User not logged in.
+Error fetching user data: User not logged in.
+Error fetching user data: User not logged in.
+Error fetching user data: User not logged in.
+Error fetching user data: User not logged in.
