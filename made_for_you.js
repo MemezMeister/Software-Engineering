@@ -1,5 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
-    document.querySelector('.tab-button[data-category="made-for-you"]').addEventListener('click', function() {
+    const madeForYouButton = document.querySelector('.tab-button[data-category="made-for-you"]');
+    
+    if (!madeForYouButton) {
+        console.error('Made For You tab button not found.');
+        return;
+    }
+
+    madeForYouButton.addEventListener('click', function() {
         fetch('explore_get_user_data.php')
             .then(response => response.json())
             .then(data => {

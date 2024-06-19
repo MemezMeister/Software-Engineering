@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Games</title>
-    <link rel="stylesheet" href="explore.css">
+    <title>Account</title>
+    <link rel="stylesheet" href="account.css">
 </head>
 <body>
     <header>
-        <div class="user-icon">
-            <a id="user-link"><img id="user-image" src="default-profile.png" alt="User Icon"></a>
-        </div>
         <div class="logo">
             <a href="explore.html"><img src="WebsiteLogo.png" alt="Website Logo"></a>
         </div>
@@ -22,18 +19,27 @@
         </div>
     </header>
     <div class="container">
-        <h1>Explore Games</h1>
-        <div class="tabs">
-            <button class="tab-button" onclick="showCategory('colorblind')">Colorblind Accessibility</button>
-            <button class="tab-button" onclick="showCategory('deaf')">Deaf Accessibility</button>
-            <button class="tab-button" onclick="showCategory('colorblind-deaf')">Colorblind and Deaf Accessibility</button>
-            <button class="tab-button" onclick="showCategory('non-inclusive')">Non-Inclusive Games</button>
-            <button class="tab-button" onclick="showCategory('made-for-you')">Made For You</button>
-        </div>
-        <div class="game-list" id="game-list">
-            <!-- Games will be populated here -->
+        <div class="profile-card">
+            <div id="profile-picture" class="profile-picture"></div>
+            <h1 id="username">Username</h1>
+            <div class="change-picture">
+                <input type="text" id="profile-picture-url" placeholder="Profile Picture URL">
+                <button id="change-picture-button">Change</button>
+            </div>
+            <div id="tags" class="tags"></div>
+            <div class="add-tag" id="add-tag-button">+</div>
+            <button id="sign-out-button">Sign Out</button>
         </div>
     </div>
-    <script src="explore.js"></script>
+    <div id="tag-modal" class="tag-modal" style="display: none;">
+        <div class="tag-modal-content">
+            <span id="close-tag-modal" class="close-tag-modal">&times;</span>
+            <div id="available-tags" class="available-tags"></div>
+        </div>
+    </div>
+    <script src="account.js"></script>
+    <script src="update_profile_picture.js"></script>
+    <script src="sign_out.js"></script>
+    <script src="remove_tag.js"></script>
 </body>
 </html>

@@ -93,13 +93,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // User icon
             const userLink = document.getElementById('user-link');
-            if (is_logged_in) {
-                userLink.innerHTML = `<img src="${user_image}" alt="User Icon">`;
-                userLink.href = 'account.php';
+            if (data.error) {
+                // User is not logged in, show login button
+                const userIcon = document.querySelector('.user-icon');
+                userIcon.innerHTML = '<a class="login-btn" href="login_register.php">Login</a>';
             } else {
-                userLink.innerHTML = 'Login';
-                userLink.href = 'login_register.php';
-                userLink.className = 'login-btn';
+                const { profile_picture } = data;
+                document.getElementById('user-image').style.backgroundImage = `url(${profile_picture})`;
+                document.getElementById('user-link').href = 'account.html';
             }
         })
         .catch(error => console.error('Error fetching game data:', error));

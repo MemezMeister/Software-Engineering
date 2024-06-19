@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $row['user_id'];
             $_SESSION['username'] = $row['username'];
             $_SESSION['user_image'] = $row['user_image'];
-            header("Location: explore.php");
+            header("Location: explore.html");
             exit();
         } else {
             $_SESSION['error'] = "Invalid email or password.";

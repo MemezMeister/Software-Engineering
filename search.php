@@ -14,11 +14,11 @@ if ($mysqli->connect_error) {
 
 $query = $_GET['query'];
 
-$sql = "SELECT game_id, game_name, game_image,
+$sql = "SELECT g.game_id, g.game_name, g.game_image,
         (SELECT AVG(rating) FROM user_reviews WHERE game_id = g.game_id) AS avg_rating, 
-        (SELECT GROUP_CONCAT(tag_name SEPARATOR ', ') FROM game_tags WHERE game_id = g.game_id) AS tags
+        (SELECT GROUP_CONCAT(t.tag_name SEPARATOR ', ') FROM game_tags gt JOIN tags t ON gt.tag_id = t.tag_id WHERE gt.game_id = g.game_id) AS tags
         FROM games g
-        WHERE game_name LIKE ?";
+        WHERE g.game_name LIKE ?";
 
 $stmt = $mysqli->prepare($sql);
 $searchQuery = "%" . $query . "%";
@@ -36,17 +36,42 @@ $result = $stmt->get_result();
     <link rel="stylesheet" href="explore.css">
 </head>
 <body>
+    <header>
+        <div class="user-icon">
+            <a id="user-link"><img id="user-image" alt=""></a>
+        </div>
+        <div class="logo">
+            <a href="explore.html"><img src="WebsiteLogo.png" alt="Website Logo"></a>
+        </div>
+        <div class="search-bar">
+            <form action="search.php" method="get">
+                <button class="request-game-btn" onclick="window.location.href='game_request.html';">Request a Game</button>
+                <input type="text" name="query" placeholder="Search games...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </header>
     <div class="container">
         <h1>Search Results for "<?php echo htmlspecialchars($query); ?>"</h1>
-        <div class="game-grid">
+        <div class="game-list">
             <?php
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
+                    $positiveTags = '';
+                    $negativeTags = '';
+                    $tagsArray = explode(', ', $row['tags']);
+                    foreach ($tagsArray as $tag) {
+                        if (in_array($tag, ['Safe Tag 1', 'Safe Tag 2'])) { // Add your positive tags here
+                            $positiveTags .= "<div class='tag positive' data-message='Safe for $tag'>$tag</div>";
+                        } else {
+                            $negativeTags .= "<div class='tag negative' data-message='Not Safe for $tag'>$tag</div>";
+                        }
+                    }
                     echo '<div class="game-item">';
-                    echo '<img src="' . $row['game_image'] . '" alt="' . htmlspecialchars($row['game_name']) . '">';
+                    echo '<img src="' . htmlspecialchars($row['game_image']) . '" alt="' . htmlspecialchars($row['game_name']) . '">';
                     echo '<h2>' . htmlspecialchars($row['game_name']) . '</h2>';
-                    echo '<div class="tags">' . htmlspecialchars($row['tags']) . '</div>';
-                    echo '<div class="rating">Average Rating: ' . number_format($row['avg_rating'], 1) . '</div>';
+                    echo '<div class="tags">' . $positiveTags . ' ' . $negativeTags . '</div>';
+                    echo '<div class="rating">' . str_repeat('★', round($row['avg_rating'])) . str_repeat('☆', 5 - round($row['avg_rating'])) . '</div>';
                     echo '<a href="game.php?game_id=' . $row['game_id'] . '">View Details</a>';
                     echo '</div>';
                 }

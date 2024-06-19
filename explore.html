@@ -9,14 +9,14 @@
 <body>
     <header>
         <div class="user-icon">
-            <a id="user-link"><img id="user-image"  alt="User Icon"></a>
+            <a id="user-link"><img id="user-image" alt=""></a>
         </div>
         <div class="logo">
             <a href="explore.html"><img src="WebsiteLogo.png" alt="Website Logo"></a>
         </div>
         <div class="search-bar">
-            <a href="game_request.html" class="request-game-button">Request a Game</a>
             <form action="search.php" method="get">
+                <button class="request-game-btn" type="button" onclick="window.location.href='game_request.html';">Request a Game</button>
                 <input type="text" name="query" placeholder="Search games...">
                 <button type="submit">Search</button>
             </form>
@@ -35,8 +35,8 @@
             <!-- Games will be populated here -->
         </div>
     </div>
+    <script src="explore_account.js"></script>
     <script src="explore.js"></script>
     <script src="made_for_you.js"></script>
-    <script src="explore_account.js"></script>   
 </body>
 </html>

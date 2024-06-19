@@ -24,66 +24,52 @@ document.addEventListener('DOMContentLoaded', function() {
                 const removeButton = document.createElement('span');
                 removeButton.classList.add('remove-tag');
                 removeButton.innerText = 'x';
-                removeButton.onclick = () => removeTag(tag);
                 tagDiv.appendChild(removeButton);
                 tagsContainer.appendChild(tagDiv);
             });
         })
         .catch(error => console.error('Error fetching user data:', error));
+
+    document.getElementById('add-tag-button').addEventListener('click', function() {
+        fetch('get_available_tags.php')
+            .then(response => response.json())
+            .then(data => {
+                const tagModal = document.createElement('div');
+                tagModal.classList.add('tag-modal');
+
+                const tagModalContent = document.createElement('div');
+                tagModalContent.classList.add('tag-modal-content');
+
+                const closeModalButton = document.createElement('span');
+                closeModalButton.classList.add('close-tag-modal');
+                closeModalButton.innerText = '×';
+                closeModalButton.onclick = () => document.body.removeChild(tagModal);
+                tagModalContent.appendChild(closeModalButton);
+
+                data.tags.forEach(tag => {
+                    const tagDiv = document.createElement('div');
+                    tagDiv.classList.add('tag', 'negative');
+                    tagDiv.innerText = tag;
+                    tagDiv.onclick = () => addTag(tag);
+                    tagModalContent.appendChild(tagDiv);
+                });
+
+                tagModal.appendChild(tagModalContent);
+                document.body.appendChild(tagModal);
+            })
+            .catch(error => console.error('Error fetching available tags:', error));
+    });
+
+    function addTag(tag) {
+        fetch(`add_tag.php?tag=${tag}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert('Failed to add tag');
+                }
+            })
+            .catch(error => console.error('Error adding tag:', error));
+    }
 });
-
-function removeTag(tag) {
-    fetch(`remove_tag.php?tag=${tag}`)
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                location.reload();
-            } else {
-                alert('Failed to remove tag');
-            }
-        })
-        .catch(error => console.error('Error removing tag:', error));
-}
-
-document.getElementById('add-tag-button').addEventListener('click', function() {
-    fetch('get_available_tags.php')
-        .then(response => response.json())
-        .then(data => {
-            const tagModal = document.createElement('div');
-            tagModal.classList.add('tag-modal');
-
-            const tagModalContent = document.createElement('div');
-            tagModalContent.classList.add('tag-modal-content');
-
-            const closeModalButton = document.createElement('span');
-            closeModalButton.classList.add('close-tag-modal');
-            closeModalButton.innerText = '×';
-            closeModalButton.onclick = () => document.body.removeChild(tagModal);
-            tagModalContent.appendChild(closeModalButton);
-
-            data.tags.forEach(tag => {
-                const tagDiv = document.createElement('div');
-                tagDiv.classList.add('tag', 'negative');
-                tagDiv.innerText = tag;
-                tagDiv.onclick = () => addTag(tag);
-                tagModalContent.appendChild(tagDiv);
-            });
-
-            tagModal.appendChild(tagModalContent);
-            document.body.appendChild(tagModal);
-        })
-        .catch(error => console.error('Error fetching available tags:', error));
-});
-
-function addTag(tag) {
-    fetch(`add_tag.php?tag=${tag}`)
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                location.reload();
-            } else {
-                alert('Failed to add tag');
-            }
-        })
-        .catch(error => console.error('Error adding tag:', error));
-}

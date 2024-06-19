@@ -60,7 +60,7 @@ if ($reviews_result->num_rows > 0) {
 $response = [
     'is_logged_in' => isset($_SESSION['user_id']),
     'user_id' => $_SESSION['user_id'] ?? null,
-    'user_image' => $_SESSION['user_image'] ?? 'Software-Engineering/Create_a_cartoonish_gamer_icon_featuring_a_playful.png',
+    'user_image' => $_SESSION['user_image'] ?? 'default_user_icon.png',
     'username' => $_SESSION['username'] ?? null,
     'game' => $game,
     'reviews' => $reviews

@@ -43,3 +43,7 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in C:\xampp\htdocs\Software-Engineering\fetch_games.php on line 14
+[19-Jun-2024 16:17:28 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "default_user_icon" in C:\xampp\htdocs\Software-Engineering\game.php:63
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Software-Engineering\game.php on line 63
