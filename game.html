@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Details</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <header>
+        <div class="user-icon">
+            <a id="user-link"></a>
+        </div>
+        <div class="logo">
+            <a href="explore.html"><img src="WebsiteLogo.png" alt="Website Logo"></a>
+        </div>
+        <div class="search-bar">
+            <form action="search.php" method="get">
+                <input type="text" name="query" placeholder="Search games...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </header>
+    <div class="container">
+        <div class="reviews" style="float:left; width:45%; margin-right: 5%;">
+            <h2>Reviews</h2>
+            <div id="reviews-list"></div>
+            <div id="write-review" style="display: none;">
+                <button id="write-review-button">Write your own</button>
+                <div id="write-review-form" style="display:none;">
+                    <form action="submit_review.php" method="post">
+                        <input type="hidden" name="game_id" id="game_id">
+                        <input type="hidden" name="user_id" id="user_id">
+                        <div class="review-header">
+                            <h3 id="username"></h3>
+                            <div class="star-rating">
+                                <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                                <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                                <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                                <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                                <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+                            </div>
+                        </div>
+                        <textarea name="review_text" rows="5" placeholder="Write your review here..."></textarea>
+                        <button type="submit" class="btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="game-details" style="float:right; width:45%;">
+            <h1 id="game-name"></h1>
+            <div class="links" id="links"></div>
+            <div class="rating-container">
+                <div class="rating-title">Accessibility Rating</div>
+                <div class="rating" id="avg-rating"></div>
+            </div>
+            <div class="tags" id="tags"></div>
+            <img id="game-image" src="" alt="">
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

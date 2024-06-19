@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Games</title>
+    <link rel="stylesheet" href="explore.css">
+</head>
+<body>
+    <header>
+        <div class="user-icon">
+            <a id="user-link"><img id="user-image" src="default-profile.png" alt="User Icon"></a>
+        </div>
+        <div class="logo">
+            <a href="explore.html"><img src="WebsiteLogo.png" alt="Website Logo"></a>
+        </div>
+        <div class="search-bar">
+            <form action="search.php" method="get">
+                <input type="text" name="query" placeholder="Search games...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Explore Games</h1>
+        <div class="tabs">
+            <button class="tab-button" onclick="showCategory('colorblind')">Colorblind Accessibility</button>
+            <button class="tab-button" onclick="showCategory('deaf')">Deaf Accessibility</button>
+            <button class="tab-button" onclick="showCategory('colorblind-deaf')">Colorblind and Deaf Accessibility</button>
+            <button class="tab-button" onclick="showCategory('non-inclusive')">Non-Inclusive Games</button>
+            <button class="tab-button" onclick="showCategory('made-for-you')">Made For You</button>
+        </div>
+        <div class="game-list" id="game-list">
+            <!-- Games will be populated here -->
+        </div>
+    </div>
+    <script src="explore.js"></script>
+</body>
+</html>
