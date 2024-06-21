@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-$sql = "SELECT username, profile_picture FROM users WHERE user_id = ?";
+$sql = "SELECT username, profile_picture, disability FROM users WHERE user_id = ?";
 $stmt = $conn->prepare($sql);
 
 if (!$stmt) {

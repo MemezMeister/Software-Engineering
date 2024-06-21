@@ -1,20 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // mengambil data user
     fetch('get_user_data.php')
         .then(response => response.json())
         .then(data => {
-            console.log(data); // Log the data for debugging
+            console.log(data); 
             if (data.error) {
                 alert(data.error);
                 return;
             }
 
-            const { username, profile_picture, tags } = data;
+            const { username, profile_picture, tags, disability } = data;
 
-            // Update the username and profile picture
+            // mengambil username dan profile picture
             document.getElementById('username').innerText = username;
             document.getElementById('profile-picture').style.backgroundImage = `url(${profile_picture})`;
-
-            // Populate tags
+            
+            // mengambil tag
             const tagsContainer = document.getElementById('tags');
             tagsContainer.innerHTML = '';
             tags.forEach(tag => {
@@ -27,49 +28,56 @@ document.addEventListener('DOMContentLoaded', function() {
                 tagDiv.appendChild(removeButton);
                 tagsContainer.appendChild(tagDiv);
             });
+
+            // Set current disability
+            document.querySelector(`input[name="disability"][value="${disability}"]`).checked = true;
         })
         .catch(error => console.error('Error fetching user data:', error));
-
-    document.getElementById('add-tag-button').addEventListener('click', function() {
-        fetch('get_available_tags.php')
-            .then(response => response.json())
-            .then(data => {
-                const tagModal = document.createElement('div');
-                tagModal.classList.add('tag-modal');
-
-                const tagModalContent = document.createElement('div');
-                tagModalContent.classList.add('tag-modal-content');
-
-                const closeModalButton = document.createElement('span');
-                closeModalButton.classList.add('close-tag-modal');
-                closeModalButton.innerText = '×';
-                closeModalButton.onclick = () => document.body.removeChild(tagModal);
-                tagModalContent.appendChild(closeModalButton);
-
-                data.tags.forEach(tag => {
-                    const tagDiv = document.createElement('div');
-                    tagDiv.classList.add('tag', 'negative');
-                    tagDiv.innerText = tag;
-                    tagDiv.onclick = () => addTag(tag);
-                    tagModalContent.appendChild(tagDiv);
-                });
-
-                tagModal.appendChild(tagModalContent);
-                document.body.appendChild(tagModal);
-            })
-            .catch(error => console.error('Error fetching available tags:', error));
-    });
-
-    function addTag(tag) {
-        fetch(`add_tag.php?tag=${tag}`)
+    
+    // mengurus sign out
+    document.getElementById('sign-out-button').addEventListener('click', function() {
+        fetch('sign_out.php')
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    location.reload();
+                    window.location.href = 'explore.html';
                 } else {
-                    alert('Failed to add tag');
+                    alert('Failed to sign out');
                 }
-            })
-            .catch(error => console.error('Error adding tag:', error));
-    }
+            });
+    });
+
+    // tunjukan ui disabilitas saat di klik
+    document.getElementById('change-disability-button').addEventListener('click', function() {
+        document.getElementById('disability-modal').style.display = 'block';
+    });
+
+    // simpan disabilitas ke database
+    document.getElementById('save-disability-button').addEventListener('click', function() {
+        const selectedDisability = document.querySelector('input[name="disability"]:checked').value;
+        fetch('update_disability.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ disability: selectedDisability })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById('disability-modal').style.display = 'none';
+                location.reload();
+            } else {
+                alert('Failed to update disability: ' + data.error);
+            }
+        })
+        .catch(error => console.error('Error updating disability:', error));
+    });
+
+    // tutup UI ganti disabilitas
+    document.querySelectorAll('.close-disability-modal').forEach(element => {
+        element.addEventListener('click', function() {
+            document.getElementById('disability-modal').style.display = 'none';
+        });
+    });
 });

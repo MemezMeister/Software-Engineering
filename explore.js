@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("DOMContentLoaded event fired in explore.js"); // Debugging line
+    console.log("DOMContentLoaded event fired in explore.js"); 
 
     fetch('fetch_games.php')
         .then(response => {
-            console.log("Response received from fetch_games.php"); // Debugging line
+            console.log("Response received from fetch_games.php"); 
             return response.json();
         })
         .then(data => {
-            console.log('Game Data:', data); // Debugging line
+            console.log('Game Data:', data); 
             if (data.error) {
                 console.error("Error fetching game data: ", data.error);
                 logError("Error fetching game data: " + data.error);

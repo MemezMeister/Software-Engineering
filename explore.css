@@ -19,7 +19,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000; /* Ensure header stays on top */
+    z-index: 1000; 
 }
 
 .user-icon {
@@ -186,7 +186,6 @@ h1 {
     background-color: #005F33;
 }
 
-/* Add this to your existing CSS file */
 .tag {
     padding: 5px 10px;
     border-radius: 15px;
@@ -199,12 +198,12 @@ h1 {
 }
 
 .tag.positive {
-    background-color: #007B45; /* Match the view details button color */
+    background-color: #007B45; 
     color: white;
 }
 
 .tag.negative {
-    background-color: #f00; /* Red for negative tags */
+    background-color: #f00; 
     color: white;
 }
 

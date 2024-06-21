@@ -1,12 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const madeForYouButton = document.querySelector('.tab-button[data-category="made-for-you"]');
-    
-    if (!madeForYouButton) {
-        console.error('Made For You tab button not found.');
-        return;
-    }
-
-    madeForYouButton.addEventListener('click', function() {
+    document.querySelector('.tab-button[data-category="made-for-you"]').addEventListener('click', function() {
         fetch('explore_get_user_data.php')
             .then(response => response.json())
             .then(data => {
@@ -20,14 +13,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 const items = document.getElementsByClassName('game-item');
 
                 for (let i = 0; i < items.length; i++) {
-                    const gameTags = items[i].querySelectorAll('.tag');
+                    const gameTags = Array.from(items[i].querySelectorAll('.tag'));
                     let display = true;
 
-                    gameTags.forEach(tag => {
-                        if (tag.classList.contains('negative') && userTags.includes(tag.innerText)) {
-                            display = false;
-                        }
-                    });
+                    if (gameTags.some(tag => tag.classList.contains('negative') && userTags.includes(tag.innerText))) {
+                        display = false;
+                    }
 
                     items[i].style.display = display ? 'flex' : 'none';
                 }

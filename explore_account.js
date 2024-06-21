@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch('explore_get_user_data.php')
         .then(response => response.json())
         .then(data => {
-            console.log('User Data:', data); // Debugging line
+            console.log('User Data:', data); 
             if (data.error) {
-                // User is not logged in, show login button
+
                 const userIcon = document.querySelector('.user-icon');
                 userIcon.innerHTML = '<a class="login-btn" href="login_register.php">Login</a>';
             } else {

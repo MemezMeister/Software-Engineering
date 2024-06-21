@@ -1,8 +1,6 @@
-Error fetching game data: SyntaxError: Unexpected token '<', "<br />
-<b>"... is not valid JSON
-Error fetching user data: User not logged in.
-Error fetching user data: User not logged in.
-Error fetching user data: User not logged in.
-Error fetching user data: User not logged in.
-Error fetching user data: User not logged in.
-Error fetching user data: User not logged in.
+Raw input: No input receivedRaw input: No input receivedRaw input: No input receivedRaw input: No input receivedRaw input: No input receivedRaw input: No input receivedRaw input: No input receivedRaw input: No input receivedRaw input: No input receivedRaw input: No input receivedRaw input: No input receivedRaw input: No input receivedRaw input: Raw input: Raw input: Raw input: Raw input: Raw input: Raw input: Raw input: Raw input: Raw input: Raw input: Raw input: {"profile_picture":"https://oyster.ignimgs.com/mediawiki/apis.ign.com/baldurs-gate-3/1/1e/Owlbear_Visits_Camp2_Closeup.png"}Decoded input: Array
+(
+    [profile_picture] => https://oyster.ignimgs.com/mediawiki/apis.ign.com/baldurs-gate-3/1/1e/Owlbear_Visits_Camp2_Closeup.png
+)
+Profile picture URL: https://oyster.ignimgs.com/mediawiki/apis.ign.com/baldurs-gate-3/1/1e/Owlbear_Visits_Camp2_Closeup.pngError fetching user data: TypeError: gameTags.some is not a function
+Error fetching user data: TypeError: gameTags.some is not a function

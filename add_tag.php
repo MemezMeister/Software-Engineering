@@ -17,7 +17,7 @@ if (!isset($_GET['tag'])) {
 $user_id = $_SESSION['user_id'];
 $tag_name = $conn->real_escape_string($_GET['tag']);
 
-// Check if the tag exists
+// pengecekan jika tag ada dalam sistem
 $tag_sql = "SELECT tag_id FROM tags WHERE tag_name = ?";
 $tag_stmt = $conn->prepare($tag_sql);
 $tag_stmt->bind_param('s', $tag_name);
@@ -32,7 +32,7 @@ if ($tag_result->num_rows === 0) {
 $tag = $tag_result->fetch_assoc();
 $tag_id = $tag['tag_id'];
 
-// Check if the user already has the tag
+// cek jika user sudah ada tag tersebut
 $user_tag_sql = "SELECT * FROM user_tags WHERE user_id = ? AND tag_id = ?";
 $user_tag_stmt = $conn->prepare($user_tag_sql);
 $user_tag_stmt->bind_param('ii', $user_id, $tag_id);
@@ -44,7 +44,7 @@ if ($user_tag_result->num_rows > 0) {
     exit();
 }
 
-// Add the tag to the user
+// penambahan tag
 $add_tag_sql = "INSERT INTO user_tags (user_id, tag_id) VALUES (?, ?)";
 $add_tag_stmt = $conn->prepare($add_tag_sql);
 $add_tag_stmt->bind_param('ii', $user_id, $tag_id);
